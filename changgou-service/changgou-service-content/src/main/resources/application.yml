@@ -36,3 +36,5 @@ hystrix:
           enabled: true
         isolation:
           strategy: SEMAPHORE
+
+#模拟此处修改的代码需要同步至远端
