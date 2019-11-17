@@ -1,0 +1,43 @@
+server:
+  port: 18085
+  connection-timeout: 60000
+spring:
+  application:
+    name: search
+  data:
+    elasticsearch:
+      cluster-name: my-application
+      cluster-nodes: 192.168.186.132:9300
+  couchbase:
+    env:
+      timeouts:
+        socket-connect: 60000
+  main:
+    allow-bean-definition-overriding: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:7001/eureka
+  instance:
+    prefer-ip-address: true
+feign:
+  hystrix:
+    enabled: true
+  compression:
+    request:
+      enabled: true
+    response:
+      enabled: true
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+
+# feign调用的数据太大时要增加ribbon中读取时间连接时间
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000

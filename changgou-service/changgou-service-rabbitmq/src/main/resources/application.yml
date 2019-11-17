@@ -1,0 +1,34 @@
+server:
+  port: 18088
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:7001/eureka
+  instance:
+    prefer-ip-address: true
+feign:
+  hystrix:
+    enabled: true
+spring:
+  application:
+    name: rabbitmq
+  main:
+    allow-bean-definition-overriding: true
+  rabbitmq:
+    host: 192.168.186.132
+    username: guest
+    password: guest
+    port: 5672
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+
+# feign调用的数据太大时要增加ribbon中读取时间连接时间
+ribbon:
+  ReadTimeout: 30000
+  ConnectTimeout: 30000

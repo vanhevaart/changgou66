@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7"/>
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <p th:text="${#maps.containsKey(result,'rowData')}?'存在':'不存在'">
+
+    </p>
+</div>
+</body>
+</html>
